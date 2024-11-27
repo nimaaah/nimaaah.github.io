@@ -1,7 +1,80 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of a Mechanical Engineer with a focus on Surgical Robotics.">
+    <title>John Doe | Mechanical Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+
+    <!-- Navigation -->
+    <header id="navbar">
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-text">
+            <h1>John Doe</h1>
+            <p>Mechanical Engineer | Surgical Robotics Enthusiast</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>Hello! I'm John, a recent Mechanical Engineering graduate from McGill University. My focus is in Surgical Robotics, where I am passionate about integrating mechanical systems with cutting-edge technologies to improve healthcare. I have hands-on experience with robotic systems design, prototyping, and testing, and I’m eager to contribute to the development of next-generation surgical tools.</p>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section-projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="project-card">
+                <img src="robotic-arm.jpg" alt="Robotic Arm Prototype">
+                <div class="project-info">
+                    <h3>Robotic Arm for Surgery</h3>
+                    <p>Designed and built a robotic arm prototype for minimally invasive surgeries, focusing on precision and ergonomic control for surgeons.</p>
+                    <a href="#">Read More</a>
+                </div>
+            </div>
+            <!-- Repeat similar project cards -->
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <form action="#" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 John Doe | Mechanical Engineer | Surgical Robotics</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
