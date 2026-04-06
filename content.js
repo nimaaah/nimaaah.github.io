@@ -21,6 +21,43 @@ window.PORTFOLIO_CONTENT = {
   profile:
     "Graduate student and FRQNT scholar at McGill’s Department of Surgical and Interventional Sciences, focused on control schemes and clinician-centric interfaces for cardiovascular surgical robotics. I specialize in translating complex engineering depth into actionable priorities, timelines, and stakeholder-ready communication. With extensive experience in requirements engineering, Agile delivery, and regulatory compliance (ISO 13485/IEC 62304), I gravitate toward Technical Product and Program Management roles where owning product outcomes and cross-functional alignment is paramount.",
 
+  /** Visual work samples between Skills and Experience; swap src paths for your own images. */
+  portfolio: {
+    heading: "Portfolio",
+    items: [
+      {
+        src: "assets/images/headshot.png",
+        caption:
+          "Replace with your shot: context, what you owned or built, and why it mattered for the program or stakeholders.",
+      },
+      {
+        src: "assets/images/headshot.png",
+        caption:
+          "Setup, hardware or software stack, and outcome — verification milestone, user study, or competition run.",
+      },
+      {
+        src: "assets/images/headshot.png",
+        caption:
+          "Team demos, integration work, or field testing — enough detail for a technical reader to grasp scope.",
+      },
+      {
+        src: "assets/images/headshot.png",
+        caption:
+          "Bench testing or lab validation: tie the photo to a metric, requirement, or risk you helped close.",
+      },
+      {
+        src: "assets/images/headshot.png",
+        caption:
+          "Design review or stakeholder session: who was in the room and what decision or alignment moved forward.",
+      },
+      {
+        src: "assets/images/headshot.png",
+        caption:
+          "Manufacturing or prototype build: process, tools, and how it de-risked schedule or cost.",
+      },
+    ],
+  },
+
   skillGroups: [
     {
       title: "Product Delivery & Leadership",

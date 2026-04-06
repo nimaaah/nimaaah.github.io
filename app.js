@@ -30,6 +30,55 @@
       </div>`;
   }
 
+  function cardHtml(item) {
+    const cap = item.caption || "";
+    const alt = item.alt != null ? item.alt : cap.slice(0, 120) || "Portfolio image";
+    return `
+      <article class="skill-card portfolio-card portfolio-marquee-card">
+        <div class="portfolio-card-image-wrap">
+          <img class="portfolio-card-img" src="${esc(item.src)}" alt="${esc(alt)}" loading="lazy" width="640" height="480" decoding="async" />
+        </div>
+        ${cap ? `<p class="portfolio-card-caption">${esc(cap)}</p>` : ""}
+      </article>`;
+  }
+
+  function renderPortfolio() {
+    const section = $("#portfolio");
+    const shell = $("#portfolio-shell");
+    const track = $("#portfolio-track");
+    const headingEl = $("#portfolio-heading");
+    const introEl = $("#portfolio-intro");
+    if (!section || !shell || !track || !headingEl) return;
+
+    const P = C.portfolio;
+    const items = P && Array.isArray(P.items) ? P.items : [];
+    if (!items.length) {
+      section.hidden = true;
+      track.innerHTML = "";
+      shell.classList.remove("portfolio-marquee--static");
+      return;
+    }
+    section.hidden = false;
+    headingEl.textContent = (P && P.heading) || "Portfolio";
+    const intro = (P && P.intro) || "";
+    if (introEl) {
+      if (intro) {
+        introEl.textContent = intro;
+        introEl.hidden = false;
+      } else {
+        introEl.textContent = "";
+        introEl.hidden = true;
+      }
+    }
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const slides = reduceMotion ? items : [...items, ...items];
+    shell.classList.toggle("portfolio-marquee--static", reduceMotion);
+    const seconds = Math.max(28, items.length * 4.5);
+    track.style.setProperty("--portfolio-marquee-seconds", `${seconds}s`);
+    track.innerHTML = slides.map((item) => cardHtml(item)).join("");
+  }
+
   function renderSkills() {
     const grid = $("#skill-grid");
     if (!grid || !C.skillGroups) return;
@@ -186,6 +235,7 @@
 
   fillHero();
   renderSkills();
+  renderPortfolio();
   renderRoleList("#timeline-exp", C.experience, "Scope & impact");
   renderRoleList("#timeline-vol", C.volunteer, "Highlights");
   renderEducation();
