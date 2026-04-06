@@ -58,6 +58,7 @@ window.PORTFOLIO_CONTENT = {
     ],
   },
 
+  
   skillGroups: [
     {
       title: "Product Delivery & Leadership",
