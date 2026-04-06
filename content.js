@@ -56,7 +56,7 @@ window.PORTFOLIO_CONTENT = {
   experience: [
     {
       id: "holoray",
-      role: "Robotics Developer / Graduate Student",
+      role: "Robotics Developer",
       org: "HoloRay",
       location: "Westmount, QC",
       dates: "Nov 2025 – Present",
@@ -76,11 +76,12 @@ window.PORTFOLIO_CONTENT = {
       location: "Westmount, QC",
       dates: "Aug 2024 – Present",
       summary:
-        "Hands-on robotics plus regulated product documentation—hardware–software integration and design history that has to stand up to scrutiny.",
+        "Cardiovascular robotics from design and manufacture through live presentation—technical, clinical, and investment audiences—alongside regulated documentation and hardware–software integration.",
       bullets: [
+        "Designs, manufactures, and presents cardiovascular robotics platforms, tailoring depth and narrative for technical, clinical, and investment stakeholders.",
         "Designs and delivers mechanical test equipment and robotic adapters end-to-end (SolidWorks, DFM); uses resin and filament AM for prototypes that unblock integration when schedules slip.",
         "Threads system, mechanical, and software together for real-time C++/Qt robotic control—chases down bench-level failures before they become program risk.",
-        "Contributes to RCA and CAPA on mechatronic systems—writes clearly so corrective and preventive actions stick",
+        "Contributes to RCA and CAPA on mechatronic systems—writes clearly so corrective and preventive actions stick.",
         "Primary author of technical documentation under ISO 13485, IEC 62304, and ISO 14971—owns design history through reviews and toward release.",
       ],
       images: [
@@ -108,8 +109,9 @@ window.PORTFOLIO_CONTENT = {
       location: "Montréal, QC",
       dates: "May 2023 – Present",
       summary:
-        "Roughly 30–40% of my time on coordination and integration across the lab; the remainder on hands-on technical work—simulation, modeling, ML/control, and conference-level communication of results.",
+        "Roughly 30–40% of my time goes to coordination and integration across the lab; the rest is hands-on simulation, modeling, and ML/control. I also design, manufacture, and present cardiovascular robotics platforms for technical and clinical audiences.",
       bullets: [
+        "Designs, manufactures, and presents cardiovascular robotics platforms for technical and clinical audiences, tailoring depth and narrative to each.",
         "Contributes to Agile delivery of real-time surgical simulation (C++, C#, Qt, Unity, Linux), coordinating integration milestones and cross-discipline alignment with the lab team while spending most of my time on deep technical work in the stack.",
         "Iterates physical tool concepts in SolidWorks and backs design decisions with structural contact analysis (Ansys).",
         "Reduces technical risk on flexible-robot behavior using MATLAB and Python/PyTorch for dynamics and control—not only models that sit in a folder.",
