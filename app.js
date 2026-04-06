@@ -140,7 +140,7 @@
   }
 
   function fillHero() {
-    document.title = `${C.name} · TPM & technical PM`;
+    document.title = `${C.name} — Portfolio`;
     $("#hero-name").textContent = C.name;
     $("#hero-title").textContent = C.title;
     $("#hero-tagline").textContent = C.tagline;

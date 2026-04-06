@@ -5,7 +5,7 @@ window.PORTFOLIO_CONTENT = {
   name: "Nima Hemati",
   title: "Technical & product-minded engineer",
   tagline:
-    "Targeting technical program / project management and product management roles where deep systems understanding meets roadmaps, stakeholders, and delivery.",
+    "Mechanical engineer with a systems lens—most engaged where roadmaps, stakeholders, and delivery meet hardware, software, and regulated product work.",
   headshot: {
     src: "assets/images/headshot.png",
     alt: "Professional headshot of Nima Hemati",
@@ -17,7 +17,7 @@ window.PORTFOLIO_CONTENT = {
     links: [{ label: "McGill aCADemy", href: "#volunteer" }],
   },
   profile:
-    "Mechanical engineer (M.Sc. in progress) with a software minor and years of leading cross-functional work: requirements, Agile delivery, risk and documentation in regulated environments, and hands-on robotics and simulation. I translate engineering depth into clear priorities, timelines, and stakeholder communication. Seeking technical project/program management or technical product management where ownership of outcomes matters as much as the tech stack.",
+    "Mechanical engineer (M.Sc. in progress) with a software minor and years of leading cross-functional work: requirements, Agile delivery, risk and documentation in regulated environments, and hands-on robotics and simulation. I translate engineering depth into clear priorities, timelines, and stakeholder communication. The work I gravitate toward aligns with technical project and program management and with technical product management—roles where owning outcomes matters as much as the technology itself.",
 
   skillGroups: [
     {
@@ -56,7 +56,7 @@ window.PORTFOLIO_CONTENT = {
       location: "Westmount, QC",
       dates: "Aug 2024 – Present",
       summary:
-        "Hands-on robotics plus regulated product documentation — strong parallel to TPM owning hardware–software interfaces and design history.",
+        "Hands-on robotics plus regulated product documentation—hardware–software integration and design history that has to stand up to scrutiny.",
       bullets: [
         "Designs mechanical testing equipment and robotic adapters (SolidWorks, DFM); prototypes with resin and filament AM",
         "Integrates system, mechanical, and software for real-time C++/Qt robotic control",
