@@ -58,7 +58,7 @@ window.PORTFOLIO_CONTENT = {
     ],
   },
 
-  
+
   skillGroups: [
     {
       title: "Product Delivery & Leadership",
@@ -139,7 +139,7 @@ window.PORTFOLIO_CONTENT = {
     },
     {
       id: "trimuh",
-      role: "Research Assistant (Technical Lead)",
+      role: "Research Assistant",
       org: "RI-MUHC SuPER Lab",
       location: "Montréal, QC",
       dates: "May 2023 – Present",
