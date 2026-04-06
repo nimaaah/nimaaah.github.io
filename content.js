@@ -33,7 +33,7 @@ window.PORTFOLIO_CONTENT = {
       title: "Design & CAE",
       items: [
         "Siemens NX/CAE, Simcenter FEMAP, Amesim, Star-CCM+, HEEDS, Maya SATK",
-        "SolidWorks, Ansys Workbench, Abaqus, MasterCAM, Fusion 360",
+        "SolidWorks, Ansys Workbench, Abaqus, MasterCAM, Autodesk Fusion (Fusion 360)",
         "Microsoft PowerPoint / Excel for specs, traceability, and program tracking",
       ],
     },
@@ -41,7 +41,8 @@ window.PORTFOLIO_CONTENT = {
       title: "Software & data",
       items: [
         "C++, C#, Python, MATLAB, Java, JavaScript — enough to work credibly with engineering teams",
-        "Git, Jira, PyTorch, TensorFlow, OpenCV, SQL, Qt, Unity",
+        "AI / ML: PyTorch, TensorFlow, scikit-learn, OpenCV (proficient; used in research and shipped tooling)",
+        "Git, Jira, SQL, Qt, Unity",
         "Linux, Ubuntu",
       ],
     },
@@ -57,10 +58,10 @@ window.PORTFOLIO_CONTENT = {
       summary:
         "Hands-on robotics plus regulated product documentation—hardware–software integration and design history that has to stand up to scrutiny.",
       bullets: [
-        "Designs mechanical testing equipment and robotic adapters (SolidWorks, DFM); prototypes with resin and filament AM",
-        "Integrates system, mechanical, and software for real-time C++/Qt robotic control",
-        "RCA and CAPA on mechatronic systems",
-        "Technical documentation aligned with ISO 13485, IEC 62304, ISO 14971",
+        "Delivers mechanical test equipment and robotic adapters end-to-end (SolidWorks, DFM); uses resin and filament AM for quick-turn prototypes that unblock integration",
+        "Coordinates system, mechanical, and software workstreams for real-time C++/Qt robotic control—closing gaps between disciplines on the bench",
+        "Contributes to RCA and CAPA on mechatronic systems—clear write-ups and follow-through so corrective and preventive actions stick",
+        "Primary author of technical documentation under ISO 13485, IEC 62304, and ISO 14971—owns design history files through reviews and toward release",
       ],
       images: [
         // { src: "assets/images/taurus-1.jpg", caption: "Test fixture overview" },
@@ -69,16 +70,16 @@ window.PORTFOLIO_CONTENT = {
     {
       id: "trimuh",
       role: "Research Assistant",
-      org: "RI-MUHC Super Lab",
+      org: "RI-MUHC SuPER Lab",
       location: "Montréal, QC",
       dates: "May 2023 – Present",
       summary:
-        "Leads slices of a complex simulation product: tools, analysis, ML/control, and conference-level communication of results.",
+        "Roughly 30–40% of time on coordination and integration across the lab; the rest on hands-on technical work—simulation, modeling, ML/control, and conference-level communication of results.",
       bullets: [
-        "Agile development of real-time simulation (C++, C#, Qt, Unity, Linux)",
-        "Surgical tool design (SolidWorks) and structural contact analysis (Ansys)",
-        "Analytical (MATLAB) and AI-based (Python, PyTorch) dynamics/control for flexible robots",
-        "Conference presentations (IROS, HSMR)",
+        "Agile delivery of real-time surgical simulation (C++, C#, Qt, Unity, Linux)—coordinates integration milestones and cross-discipline alignment with the lab team, alongside sustained hands-on work in the stack",
+        "Defines and refines physical tool concepts in SolidWorks; supports design decisions with structural contact analysis (Ansys)",
+        "Reduces technical risk on flexible-robot behavior through MATLAB models and Python/PyTorch-based dynamics and control work",
+        "Communicates program progress and technical results externally (IROS, HSMR)—stakeholder-ready narrative around complex systems",
       ],
       images: [],
     },
@@ -89,13 +90,13 @@ window.PORTFOLIO_CONTENT = {
       location: "Montréal, QC",
       dates: "Sep 2019 – May 2023",
       summary:
-        "Program-level technical leadership: requirements flow-down, verification planning, and cross-subsystem integration for a competition vehicle.",
+        "Program-level technical leadership for a ~20–25 person team on roughly $100k/year program budget: requirements flow-down, verification planning, and cross-subsystem integration for a competition vehicle.",
       bullets: [
-        "System-level development with KPIs, Excel, MATLAB for subsystem requirements",
-        "Structural analysis of transmission (Siemens NX/CAE)",
-        "Modal analysis of chassis; accurate 1-D connections for structural models",
-        "Strain gauges, accelerometers, load cells for unit/integration testing",
-        "Technical drawings; G-code (MasterCAM) for CNC milling/lathing",
+        "Drove system-level planning with KPIs, Excel, and MATLAB—translated vehicle goals into subsystem requirements and tracked trade-offs across subsystems",
+        "Owned transmission structural integrity (Siemens NX/CAE)—analysis-backed recommendations for a safety-critical load path",
+        "Aligned chassis CAE setup (modal analysis, 1-D connections) so downstream structural results were comparable across subsystems",
+        "Planned and executed sensor-based verification (strain, acceleration, load)—evidence for integration milestones ahead of competition",
+        "Delivered manufacturing-ready outputs: controlled technical drawings and MasterCAM G-code for CNC milling and lathing",
       ],
       images: [],
     },
@@ -108,9 +109,9 @@ window.PORTFOLIO_CONTENT = {
       summary:
         "Customer-facing technical work: models, analyses, and portfolio storytelling for engineering software.",
       bullets: [
-        "Random and sinusoidal analyses (Simcenter FEMAP, Maya SATK)",
-        "System-level Amesim models: powertrain and thermal",
-        "Client-facing PowerPoint on Simcenter portfolio",
+        "Delivered vibration analyses (random and sinusoidal) using Simcenter FEMAP and Maya SATK—clear outputs clients could act on",
+        "Built system-level Amesim models (powertrain, thermal) to connect physics to customer problems and solution positioning",
+        "Supported sales-facing technical narrative—client presentations on the Simcenter portfolio tying capability to buyer needs",
       ],
       images: [],
     },
@@ -121,11 +122,11 @@ window.PORTFOLIO_CONTENT = {
       location: "Tillsonburg, ON",
       dates: "May 2021 – Aug 2021",
       summary:
-        "Traceability at scale plus building internal tools — data, process, and a shipped web/ML prototype.",
+        "Traceability at scale plus internal tooling with a small plant R&D team—data, process, and a web/ML system that stayed in use.",
       bullets: [
-        "Excel workflows for ~$48M tooling tag traceability",
-        "Camera mounts and tracking hardware (SolidWorks); deformation analysis",
-        "Web client (HTML, JS, Flask), ML (Python, TensorFlow, OpenCV, SQL) on Raspberry Pi",
+        "Built and maintained Excel-based traceability for ~$48M in tooling tags—brought structure to a high-stakes plant data problem and supported audit readiness",
+        "Designed tracking hardware (SolidWorks) with deformation analysis—practical mounts that operations could actually deploy",
+        "With a small on-site R&D team, delivered an internal web client (HTML, JS, Flask) and ML stack (Python, TensorFlow, OpenCV, SQL) on Raspberry Pi for QA and inventory—the system remains in use",
       ],
       images: [],
     },
@@ -139,7 +140,7 @@ window.PORTFOLIO_CONTENT = {
       location: "Montréal, QC",
       dates: "Aug 2020 – May 2022",
       bullets: [
-        "Founded CAD tutoring; mentorship and workshops (SolidWorks, Siemens NX)",
+        "Founded and ran a CAD tutoring service—mentorship and structured workshops (SolidWorks, Siemens NX) for peers",
       ],
       images: [],
     },
@@ -149,7 +150,9 @@ window.PORTFOLIO_CONTENT = {
       org: "McGill University",
       location: "Montréal, QC",
       dates: "Sep 2020 – May 2021",
-      bullets: ["General Chemistry 1 & 2 discussion board support"],
+      bullets: [
+        "Supported Gen Chem 1 & 2 learners on discussion boards—clear, timely answers at high volume",
+      ],
       images: [],
     },
     {
@@ -158,7 +161,9 @@ window.PORTFOLIO_CONTENT = {
       org: "McGill University",
       location: "Montréal, QC",
       dates: "Sep 2020 – Dec 2020",
-      bullets: ["Intermediate Calculus support; planned weekly workshops"],
+      bullets: [
+        "TA for Intermediate Calculus—office hours plus planned weekly workshops to close gaps before assessments",
+      ],
       images: [],
     },
   ],
