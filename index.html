@@ -1,80 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio of a Mechanical Engineer with a focus on Surgical Robotics.">
-    <title>Nima Hemati</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Poppins:wght@600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Nima Hemati — technical project and product management profile; robotics, systems, and regulated product delivery."
+    />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; frame-ancestors 'none'; upgrade-insecure-requests"
+    />
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="ambient" aria-hidden="true">
+      <div class="ambient-orb ambient-orb--a"></div>
+      <div class="ambient-orb ambient-orb--b"></div>
+      <div class="ambient-grid"></div>
+    </div>
 
-    <!-- Navigation -->
-    <header id="navbar">
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Home">NH</a>
+      <div class="nav-list-wrap" id="nav-list-wrap">
+        <nav aria-label="Primary">
+          <ul class="nav-list">
+            <li><a href="#profile">Profile</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Work</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#volunteer">Volunteer</a></li>
+          </ul>
         </nav>
+      </div>
+      <div class="header-end">
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-list-wrap" aria-label="Open menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="header-actions">
+          <a class="btn btn-primary" id="pdf-link" href="Nima_Hemati_CV.pdf" download>CV</a>
+        </div>
+      </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-text">
-            <h1>Nima Hemati</h1>
-            <p>Graduate Student at McGill University | Robotics Developer at Taurus Surgical</p>
+    <main id="main">
+      <div class="hero-stack" id="top">
+        <div class="hero-intro">
+          <div class="headshot-frame">
+            <img
+              class="headshot"
+              id="headshot"
+              src="assets/images/headshot.png"
+              width="640"
+              height="800"
+              decoding="async"
+              fetchpriority="high"
+              alt=""
+            />
+          </div>
+          <section class="hero" aria-labelledby="hero-name">
+            <p class="hero-eyebrow">TPM · Technical PM · Product</p>
+            <h1 id="hero-name"></h1>
+            <p class="hero-title-line" id="hero-title"></p>
+            <p class="hero-lead" id="hero-tagline"></p>
+            <div class="contact-chips" id="contact-chips"></div>
+          </section>
         </div>
-    </section>
 
-    <!-- About Section -->
-    <section id="about" class="section-about">
-        <div class="container">
-            <h2>About Me</h2>
-            <!-- <p>As a mechanical engineering graduate with an extensive background in software engineering, I have full-stack experience with the development of intuitive user experiences, robotic control schemes, integration of sensors/telemetry with numerous robotics APIs, as well as extensive experience with mechanical prototyping tools (e.g resin/filament-based 3D printers). I’m eager to use these skills to continue contributing to the development of next-generation surgical tools. Send me a message if you have any inquiries!</p> -->
+        <section id="profile" class="profile-float" aria-labelledby="profile-heading">
+          <span class="section-kicker" id="profile-heading">About</span>
+          <p class="profile-text" id="profile-text"></p>
+        </section>
+      </div>
+
+      <section id="skills" class="section-tight" aria-labelledby="skills-heading">
+        <div class="section-head">
+          <span class="section-kicker" id="skills-heading">Capabilities</span>
+          <p class="section-dek">Delivery, domain depth, and tools — all visible below</p>
         </div>
-    </section>
+        <div class="skill-bento" id="skill-grid"></div>
+      </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="section-projects">
-        <div class="container">
-            <h2>Projects</h2>
-            <!-- <div class="project-card">
-                <img src="robotic-arm.jpg" alt="Robotic Arm Prototype">
-                <div class="project-info">
-                    <h3>Robotic Arm for Surgery</h3>
-                    <p>Designed and built a robotic arm prototype for minimally invasive surgeries, focusing on precision and ergonomic control for surgeons.</p>
-                    <a href="#">Read More</a>
-                </div>
-            </div> -->
-            <!-- Repeat similar project cards -->
+      <section id="experience" class="section-tight" aria-labelledby="experience-heading">
+        <div class="section-head">
+          <span class="section-kicker" id="experience-heading">Experience</span>
+          <p class="section-dek">Full detail and photos for each role — scroll the page, no extra clicks</p>
         </div>
-    </section>
+        <div class="exp-list" id="timeline-exp"></div>
+      </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section-contact">
-        <div class="container">
-            <h2>Contact Me</h2>
-            <form action="#" method="POST">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
+      <section id="education" class="section-tight" aria-labelledby="education-heading">
+        <div class="section-head">
+          <span class="section-kicker" id="education-heading">Education</span>
+          <p class="section-dek">Degrees, highlights, and space for photos</p>
         </div>
-    </section>
+        <div class="edu-overlap" id="education-blocks"></div>
+      </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Nima Hemati</p>
+      <section id="volunteer" class="section-tight" aria-labelledby="volunteer-heading">
+        <div class="section-head">
+          <span class="section-kicker" id="volunteer-heading">Volunteer & teaching</span>
+          <p class="section-dek">Community and mentorship — full text inline</p>
+        </div>
+        <div class="exp-list" id="timeline-vol"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Private host · CV-backed · <span id="year"></span></p>
     </footer>
 
-    <script src="script.js"></script>
-</body>
+    <script src="content.js"></script>
+    <script src="app.js"></script>
+  </body>
 </html>
