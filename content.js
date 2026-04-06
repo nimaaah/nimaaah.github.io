@@ -12,7 +12,6 @@ window.PORTFOLIO_CONTENT = {
   },
   contact: {
     email: "nima.hemati@mail.mcgill.ca",
-    phone: "+1 514-699-1401",
     github: "https://github.com/",
     links: [{ label: "McGill aCADemy", href: "#volunteer" }],
   },
