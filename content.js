@@ -97,7 +97,7 @@ window.PORTFOLIO_CONTENT = {
         "Affordable, personalized physical prototypes from CT/MRI for patients, clinicians, educators, and businesses.",
       bullets: [
         "Founded MyRadio to turn imaging into something people can hold: low-cost, customized 3D-printed models from CT/MRI scans.",
-        "Runs founder-led work end to end—product definition, customer conversations, and a manufacturing path suited to one-offs and small batches",
+        "Runs founder-led work end to end—product definition, customer conversations, and a manufacturing path suited to one-offs and small batches.",
       ],
       images: [],
     },
@@ -108,9 +108,9 @@ window.PORTFOLIO_CONTENT = {
       location: "Montréal, QC",
       dates: "May 2023 – Present",
       summary:
-        "Roughly 30–40% of time on coordination and integration across the lab; the remainder on hands-on technical work—simulation, modeling, ML/control, and conference-level communication of results.",
+        "Roughly 30–40% of my time on coordination and integration across the lab; the remainder on hands-on technical work—simulation, modeling, ML/control, and conference-level communication of results.",
       bullets: [
-        "Contributes to Agile delivery of real-time surgical simulation (C++, C#, Qt, Unity, Linux): coordinates integration milestones and cross-discipline alignment with the lab team, while spending most of my time on deep technical work in the stack.",
+        "Contributes to Agile delivery of real-time surgical simulation (C++, C#, Qt, Unity, Linux), coordinating integration milestones and cross-discipline alignment with the lab team while spending most of my time on deep technical work in the stack.",
         "Iterates physical tool concepts in SolidWorks and backs design decisions with structural contact analysis (Ansys).",
         "Reduces technical risk on flexible-robot behavior using MATLAB and Python/PyTorch for dynamics and control—not only models that sit in a folder.",
         "Takes results outside the lab (IROS, HSMR) with stakeholder-grade storytelling on complex systems.",
@@ -178,7 +178,7 @@ window.PORTFOLIO_CONTENT = {
       location: "Montréal, QC",
       dates: "Aug 2020 – May 2022",
       bullets: [
-        "Founded and ran McGill aCADemy—peer mentorship and structured workshops (SolidWorks, Siemens NX)",
+        "Founded and ran McGill aCADemy—peer mentorship and structured workshops (SolidWorks, Siemens NX).",
       ],
       images: [],
     },
