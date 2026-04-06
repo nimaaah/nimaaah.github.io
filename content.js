@@ -4,9 +4,9 @@
  */
 window.PORTFOLIO_CONTENT = {
   name: "Nima Hemati",
-  title: "Technical & Product-Minded Engineer",
+  title: "Technical & Product-Minded Developer",
   tagline:
-    "A mechanical engineer with a systems lens—specializing in the intersection of technical roadmaps, stakeholder alignment, and high-stakes delivery of hardware-software systems in regulated environments.",
+    "A mechanical engineering graduate with a systems lens—specializing in the intersection of technical roadmaps, stakeholder alignment, and high-stakes delivery of hardware-software systems in regulated environments.",
   headshot: {
     src: "assets/images/headshot.png",
     alt: "Professional headshot of Nima Hemati",

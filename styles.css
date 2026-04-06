@@ -288,7 +288,7 @@ main {
 
 @media (min-width: 720px) {
   .hero-intro {
-    grid-template-columns: minmax(200px, 280px) minmax(0, 1fr);
+    grid-template-columns: minmax(160px, 224px) minmax(0, 1fr);
     gap: clamp(1.5rem, 4vw, 2.75rem);
     align-items: center;
   }
@@ -296,23 +296,22 @@ main {
 
 .headshot-frame {
   position: relative;
-  aspect-ratio: 3 / 4;
-  max-height: min(400px, 52vh);
-  border-radius: var(--radius);
+  width: min(224px, 72vw);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
   overflow: hidden;
   border: 1px solid var(--border-bright);
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(155, 126, 217, 0.1);
   background: linear-gradient(160deg, var(--accent-purple-soft), rgba(255, 255, 255, 0.02));
-  max-width: 280px;
+  max-width: 224px;
   margin: 0 auto;
 }
 
 @media (min-width: 720px) {
   .headshot-frame {
     margin: 0;
-    max-width: none;
     width: 100%;
-    max-height: min(420px, 58vh);
+    max-width: 224px;
   }
 }
 
