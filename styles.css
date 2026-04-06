@@ -25,6 +25,11 @@
   --font-mono: ui-monospace, SFMono-Regular, "Cascadia Code", "Segoe UI Mono", Menlo, Consolas, monospace;
   --nav-h: 72px;
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  /* Layout + type scale */
+  --content-max: min(1280px, calc(100% - 2rem));
+  --text-display: clamp(3.1rem, 7.5vw, 5rem);
+  --text-section: clamp(1.65rem, 3.2vw, 2.35rem);
+  --text-subsection: clamp(1.05rem, 1.6vw, 1.2rem);
 }
 
 *,
@@ -43,8 +48,8 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: var(--font-sans);
-  font-size: 16px;
-  line-height: 1.5;
+  font-size: 17px;
+  line-height: 1.55;
   color: var(--text);
   background: var(--bg);
   position: relative;
@@ -122,7 +127,7 @@ a:hover {
   position: sticky;
   top: 1rem;
   z-index: 100;
-  max-width: min(1120px, calc(100% - 2rem));
+  max-width: var(--content-max);
   margin: 0 auto;
   height: var(--nav-h);
   display: flex;
@@ -145,7 +150,7 @@ a:hover {
 
 .brand {
   font-weight: 800;
-  font-size: 0.95rem;
+  font-size: 1rem;
   letter-spacing: 0.06em;
   color: var(--text);
   text-decoration: none;
@@ -195,8 +200,8 @@ a:hover {
 
 .nav-list a {
   color: var(--muted);
-  font-size: 0.8125rem;
-  font-weight: 500;
+  font-size: 0.875rem;
+  font-weight: 600;
   text-decoration: none;
   padding: 0.4rem 0.75rem;
   border-radius: 999px;
@@ -264,9 +269,9 @@ a:hover {
 main {
   position: relative;
   z-index: 1;
-  max-width: 1120px;
+  max-width: var(--content-max);
   margin: 0 auto;
-  padding: 0 clamp(1rem, 3vw, 2rem) 3rem;
+  padding: 0 clamp(1rem, 4vw, 2.5rem) 3.5rem;
   scroll-margin-top: calc(var(--nav-h) + 2rem);
 }
 
@@ -274,7 +279,7 @@ main {
 .hero-stack {
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: clamp(1.25rem, 3vw, 2rem);
   padding-top: clamp(1.5rem, 4vw, 2.5rem);
   margin-bottom: clamp(2.5rem, 6vw, 4rem);
 }
@@ -335,48 +340,50 @@ main {
 
 @media (min-width: 900px) {
   .profile-float {
-    margin-top: -1.25rem;
+    margin-top: 0;
     margin-left: clamp(0.5rem, 8vw, 5rem);
-    z-index: 2;
     max-width: calc(100% - 1rem);
   }
 }
 
 .hero-eyebrow {
-  margin: 0 0 0.75rem;
+  margin: 0 0 0.65rem;
   font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.2em;
+  font-size: 0.6875rem;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--dim);
 }
 
 .hero h1 {
-  margin: 0 0 0.35rem;
-  font-size: clamp(2.75rem, 8vw, 4.25rem);
+  margin: 0 0 0.4rem;
+  font-size: var(--text-display);
   font-weight: 800;
-  letter-spacing: -0.045em;
-  line-height: 0.98;
-  background: linear-gradient(135deg, #fff 0%, #c4b8e0 42%, var(--accent-2) 100%);
+  letter-spacing: -0.05em;
+  line-height: 0.94;
+  background: linear-gradient(135deg, #fff 0%, #d4c8f0 38%, var(--accent-purple) 62%, var(--accent-2) 100%);
   -webkit-background-clip: text;
   background-clip: text;
+  -webkit-text-fill-color: transparent;
   color: transparent;
+  filter: drop-shadow(0 2px 24px rgba(155, 126, 217, 0.22));
 }
 
 .hero-title-line {
-  margin: 0 0 1rem;
+  margin: 0 0 1.1rem;
   font-family: var(--font-mono);
-  font-size: clamp(0.875rem, 2vw, 1rem);
+  font-size: clamp(0.9375rem, 2.1vw, 1.1875rem);
   color: var(--accent-purple);
-  font-weight: 500;
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
 .hero-lead {
   margin: 0 0 1.5rem;
   color: var(--muted);
-  max-width: 28rem;
-  font-size: 1.0625rem;
-  line-height: 1.65;
+  max-width: 34rem;
+  font-size: clamp(1.0625rem, 1.5vw, 1.1875rem);
+  line-height: 1.68;
 }
 
 .contact-chips {
@@ -388,8 +395,8 @@ main {
 .chip {
   display: inline-flex;
   align-items: center;
-  padding: 0.4rem 0.9rem;
-  font-size: 0.78rem;
+  padding: 0.45rem 1rem;
+  font-size: 0.8125rem;
   font-family: var(--font-mono);
   background: var(--surface-strong);
   border: 1px solid var(--border);
@@ -429,6 +436,7 @@ main {
   opacity: 0.5;
 }
 
+/* Small label (About card, etc.) */
 .section-kicker {
   display: block;
   font-size: 0.6875rem;
@@ -439,11 +447,36 @@ main {
   margin-bottom: 0.75rem;
 }
 
+/* Large section titles — Capabilities, Work, … */
+.section-head .section-kicker {
+  font-size: var(--text-section);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  text-transform: none;
+  line-height: 1.05;
+  margin-bottom: 0.35rem;
+  background: linear-gradient(90deg, #fff 0%, var(--muted) 95%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.section-head .section-kicker::after {
+  content: "";
+  display: block;
+  width: 3rem;
+  height: 3px;
+  margin-top: 0.65rem;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+}
+
 .profile-text {
   margin: 0;
   color: var(--muted);
-  font-size: 0.9375rem;
-  line-height: 1.7;
+  font-size: 1rem;
+  line-height: 1.72;
 }
 
 /* Sections */
@@ -453,7 +486,7 @@ main {
 }
 
 .section-head {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
 }
 
 .section-head--row {
@@ -465,9 +498,11 @@ main {
 }
 
 .section-dek {
-  margin: 0.35rem 0 0;
-  font-size: 0.875rem;
+  margin: 0.5rem 0 0;
+  font-size: clamp(0.875rem, 1.2vw, 1rem);
   color: var(--dim);
+  line-height: 1.5;
+  max-width: 42rem;
 }
 
 /* Skills bento */
@@ -536,9 +571,9 @@ main {
 
 .skill-card h3 {
   margin: 0 0 0.85rem;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
+  font-size: clamp(0.8125rem, 1.1vw, 0.9375rem);
+  font-weight: 800;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text);
 }
@@ -547,8 +582,8 @@ main {
   margin: 0;
   padding-left: 1rem;
   color: var(--muted);
-  font-size: 0.8125rem;
-  line-height: 1.55;
+  font-size: 0.875rem;
+  line-height: 1.58;
 }
 .skill-card li {
   margin-bottom: 0.35rem;
@@ -580,41 +615,43 @@ main {
 }
 
 .role-card-title {
-  margin: 0 0 0.2rem;
-  font-size: 1.15rem;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.2;
+  margin: 0 0 0.25rem;
+  font-size: clamp(1.22rem, 2vw, 1.45rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.18;
+  color: var(--text);
 }
 
 .role-card-org {
-  margin: 0 0 0.35rem;
-  font-size: 0.875rem;
+  margin: 0 0 0.4rem;
+  font-size: var(--text-subsection);
   font-weight: 600;
   color: var(--accent-2);
+  letter-spacing: -0.015em;
 }
 
 .role-card-meta {
   margin: 0;
   font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  letter-spacing: 0.06em;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--dim);
 }
 
 .role-card-summary {
-  margin: 0 0 1rem;
-  font-size: 0.9rem;
-  line-height: 1.6;
+  margin: 0 0 1.05rem;
+  font-size: 0.9375rem;
+  line-height: 1.62;
   color: var(--muted);
 }
 
 .role-card-list-title {
-  margin: 0 0 0.5rem;
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
+  margin: 0 0 0.55rem;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--accent-purple);
 }
@@ -623,8 +660,8 @@ main {
   margin: 0 0 1.25rem;
   padding-left: 1.15rem;
   color: var(--text);
-  font-size: 0.9rem;
-  line-height: 1.6;
+  font-size: 0.9375rem;
+  line-height: 1.62;
 }
 
 .role-card-list li {
@@ -643,9 +680,9 @@ main {
 
 .inline-gallery-title {
   margin: 0 0 0.65rem;
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--accent-2);
 }
@@ -707,7 +744,7 @@ main {
   text-align: center;
   padding: 2.5rem 1rem;
   color: var(--dim);
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   font-family: var(--font-mono);
   letter-spacing: 0.12em;
   text-transform: uppercase;

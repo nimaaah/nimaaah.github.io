@@ -54,7 +54,7 @@ window.PORTFOLIO_CONTENT = {
   experience: [
     {
       id: "holoray",
-      role: "Robotics Developer (Integration Lead)",
+      role: "Robotics Developer",
       org: "HoloRay",
       location: "Westmount, QC",
       dates: "Nov 2025 – Present",
@@ -69,7 +69,7 @@ window.PORTFOLIO_CONTENT = {
     },
     {
       id: "taurus",
-      role: "Robotics Developer (Systems Lead)",
+      role: "Robotics Developer",
       org: "Taurus Surgical Inc.",
       location: "Westmount, QC",
       dates: "Aug 2024 – Present",
@@ -81,12 +81,13 @@ window.PORTFOLIO_CONTENT = {
         "Mitigates program-level risk by identifying and resolving hardware-software conflicts through rigorous bench-level verification.",
         "Drives Root Cause Analysis (RCA) and CAPA initiatives, ensuring corrective actions improve system reliability and compliance.",
         "Serves as primary author for technical documentation under ISO 13485 and IEC 62304, owning the design history file through release.",
+        "Recruited and onboarded exceptional candidates to join the project, delegated technical requirements, mentored, and provided guidance on the technical stack.",
       ],
       images: [],
     },
     {
       id: "myradio",
-      role: "Founder (Product Lead)",
+      role: "Founder",
       org: "MyRadio",
       location: "Montréal, QC",
       dates: "Sep 2025 – Present",
