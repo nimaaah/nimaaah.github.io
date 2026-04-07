@@ -204,7 +204,7 @@ window.PORTFOLIO_CONTENT = {
     },
   ],
 
-  volunteer: [
+  volunteering: [
     {
       id: "academy",
       role: "Founder / President",
