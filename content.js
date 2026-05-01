@@ -21,39 +21,187 @@ window.PORTFOLIO_CONTENT = {
   profile:
     "Graduate student and FRQNT scholar at McGill’s Department of Surgical and Interventional Sciences, focused on control schemes and clinician-centric interfaces for cardiovascular surgical robotics. I specialize in translating complex engineering depth into actionable priorities, timelines, and stakeholder-ready communication. With extensive experience in requirements engineering, Agile delivery, and regulatory compliance (ISO 13485/IEC 62304), I gravitate toward Technical Product and Program Management roles where owning product outcomes and cross-functional alignment is paramount.",
 
-  /** Visual work samples between Skills and Experience; swap src paths for your own images. */
+  /**
+   * Visual samples between Skills and Experience.
+   * HEIC files are omitted (limited browser support); convert to JPEG if you want them on the web.
+   */
   portfolio: {
-    heading: "Portfolio",
-    items: [
+    heading: "Interactive Portfolio",
+    intro:
+      "This gallery is organized around four strengths: stakeholder communication, product management, mechanical design, and software design.",
+    sections: [
       {
-        src: "assets/images/headshot.png",
-        caption:
-          "Replace with your shot: context, what you owned or built, and why it mattered for the program or stakeholders.",
+        id: "stakeholder-communication",
+        label: "Stakeholder Communication",
+        title: "Communication across audiences",
+        why: "I communicate technical depth to executives, collaborators, clinical teams, and broader audiences without losing clarity.",
+        items: [
+          {
+            src: "assets/images/IMG_7542.jpg",
+            title: "Conference keynote-style presentation",
+            alt: "Presenting robotics research on a large conference stage",
+            caption: "Large-format conference presentation showcasing robotics modeling work to a broad audience.",
+          },
+          {
+            src: "assets/images/IMG_4488.jpg",
+            title: "Academic and clinical audience briefing",
+            alt: "Delivering a technical talk from a podium with McGill surgical slide deck",
+            caption: "Podium talk translating technical details for mixed academic and clinical stakeholders.",
+          },
+          {
+            src: "assets/images/BD2BDFB7-B854-4EF7-8F2A-FBFB469A0F6D.mov",
+            title: "Live speaking clip",
+            type: "video",
+            alt: "Video clip from a live presentation",
+            caption: "Live clip from a speaking session where narrative and technical depth are delivered together.",
+          },
+          {
+            src: "assets/images/c00d2854-a89c-4822-8f22-c673ccd9ba1f.jpg",
+            title: "Formal presentation setting",
+            alt: "Presenter speaking in auditorium to audience",
+            caption: "Formal stage presentation focused on communicating solution framing and technical value.",
+          },
+          {
+            src: "assets/images/IMG_6766.JPG",
+            title: "Live stakeholder demonstration",
+            alt: "Hands-on demonstration with robotic setup and audience",
+            caption: "Real-time technical demonstration bridging hands-on detail with audience understanding.",
+          },
+          {
+            src: "assets/images/IMG_1570.jpg",
+            title: "Expo floor stakeholder demo",
+            alt: "Live product discussion on a conference floor",
+            caption: "Discussing product flow and value proposition in a live industry setting.",
+          },
+        ],
       },
       {
-        src: "assets/images/headshot.png",
-        caption:
-          "Setup, hardware or software stack, and outcome — verification milestone, user study, or competition run.",
+        id: "product-management",
+        label: "Product Management",
+        title: "From roadmap to execution loops",
+        why: "I shape development into clear workflows: planning milestones, stakeholder alignment, and iterative delivery.",
+        items: [
+          {
+            src: "assets/images/IMG_0852.JPG",
+            title: "Structured demo walkthrough",
+            alt: "Team gathered around workstation demo",
+            caption: "Running visitors through the system with a staged flow from context to interface to outcomes.",
+          },
+          {
+            src: "assets/images/IMG_0855.JPG",
+            title: "Interface and data storytelling",
+            alt: "Workstation screens during robotics walkthrough",
+            caption: "Explaining decision surfaces on screen while connecting technical details to product implications.",
+          },
+          {
+            src: "assets/images/IMG_0856.JPG",
+            title: "Small-group technical briefing",
+            alt: "Presenter explaining system to small group",
+            caption: "Adapting message depth for an intimate audience while preserving technical clarity.",
+          },
+          {
+            src: "assets/images/IMG_0859.JPG",
+            title: "Q&A and audience engagement",
+            alt: "Speaker addressing group questions in lab",
+            caption: "Interactive Q&A that turns demos into aligned next steps for collaborators and decision-makers.",
+          },
+          {
+            src: "assets/images/MyRadio_Collage_page-0001.jpg",
+            title: "MyRadio concept to tangible output",
+            alt: "Collage of 3D-printed cardiac models in multiple variants",
+            caption: "Translating discovery into product artifacts: model variants, user context, and clear clinical storytelling.",
+          },
+        ],
       },
       {
-        src: "assets/images/headshot.png",
-        caption:
-          "Team demos, integration work, or field testing — enough detail for a technical reader to grasp scope.",
+        id: "mechanical-design",
+        label: "Mechanical Design",
+        title: "Mechanism and hardware execution",
+        why: "I design and validate physical systems that hold up under real constraints, from lab prototypes to competition platforms.",
+        items: [
+          {
+            src: "assets/images/0501 city surgical robotic.jpeg",
+            title: "Surgical robotics bench integration",
+            alt: "Surgical robotics setup in lab",
+            caption: "Live robot + operator setup where software control and mechanical interaction are tested together.",
+          },
+          {
+            src: "assets/images/IMG_8229.jpeg",
+            title: "Prototype articulation detail",
+            alt: "Close-up of articulated prototype component",
+            caption: "Early-stage mechatronic prototype for catheter-oriented interaction and constrained motion.",
+          },
+          {
+            src: "assets/images/BajaPic11.jpeg",
+            title: "Vehicle-level systems integration",
+            alt: "Baja race car in competition environment",
+            caption: "High-load mechanical design and subsystem trade-offs validated in competition conditions.",
+          },
+          {
+            src: "assets/images/IMG_0857.JPG",
+            title: "Hardware walkthrough at robot station",
+            alt: "Presenter beside collaborative robot arm",
+            caption: "Explaining physical subsystem choices directly at the robot platform.",
+          },
+          {
+            src: "assets/images/IMG_9254.jpg",
+            title: "Multi-arm robotics testbed",
+            alt: "Lab bench with multiple robotic arms and instrumentation fixtures",
+            caption: "Integrated hardware testbed for bench validation across mechanical setup, fixtures, and robot tooling.",
+          },
+          {
+            src: "assets/images/testsetup.png",
+            title: "Catheter and tendon-spool bench setup",
+            alt: "Labeled catheter test setup with tendon spools and EM sensing hardware",
+            caption: "Bench prototype integrating tendon actuation, sensing, and catheter path constraints for mechanical validation.",
+          },
+        ],
       },
       {
-        src: "assets/images/headshot.png",
-        caption:
-          "Bench testing or lab validation: tie the photo to a metric, requirement, or risk you helped close.",
-      },
-      {
-        src: "assets/images/headshot.png",
-        caption:
-          "Design review or stakeholder session: who was in the room and what decision or alignment moved forward.",
-      },
-      {
-        src: "assets/images/headshot.png",
-        caption:
-          "Manufacturing or prototype build: process, tools, and how it de-risked schedule or cost.",
+        id: "software-design",
+        label: "Software Design",
+        title: "Control logic, interfaces, and simulation",
+        why: "I design software layers that connect control, visualization, and user workflows into reliable end-to-end systems.",
+        items: [
+          {
+            src: "assets/images/IMG_0853.JPG",
+            title: "Technical architecture brief",
+            alt: "Presenter discussing robotics setup",
+            caption: "Communicating architecture and constraints directly beside the physical system.",
+          },
+          {
+            src: "assets/images/Screenshot 2026-05-01 013649.png",
+            title: "Vision pipeline screen capture",
+            alt: "Software view of a robotics or manufacturing vision workflow",
+            caption: "In-development software interface used to validate machine-state perception and control feedback loops.",
+          },
+          {
+            src: "assets/images/arch.png",
+            title: "Model architecture diagram",
+            alt: "Neural architecture pipeline diagram for kinematics-informed sequence modeling",
+            caption: "End-to-end model architecture illustrating encoder, latent representation, and decoder flow for robotic prediction tasks.",
+          },
+          {
+            src: "assets/images/IMG_0858.JPG",
+            title: "Operator-centered viewpoint",
+            alt: "Operator at console with robotics setup",
+            caption: "Operator perspective used to shape human-in-the-loop workflow and usability refinement.",
+          },
+          {
+            src: "assets/images/IMG_6114.mov",
+            title: "Motion behavior capture",
+            type: "video",
+            alt: "Video of robotics motion in lab",
+            caption: "Video evidence of timing and control behavior that static photos cannot show.",
+          },
+          {
+            src: "assets/images/D85D4F38-F94C-4E16-B658-664507E32F6D.mov",
+            title: "System interaction clip",
+            type: "video",
+            alt: "Video sample from robotics workflow",
+            caption: "Short clip documenting real interaction dynamics for development and demonstration feedback.",
+          },
+        ],
       },
     ],
   },
@@ -121,7 +269,12 @@ window.PORTFOLIO_CONTENT = {
         "Serves as primary author for technical documentation under ISO 13485 and IEC 62304, owning the design history file through release.",
         "Recruited and onboarded exceptional candidates to join the project, delegated technical requirements, mentored, and provided guidance on the technical stack.",
       ],
-      images: [],
+      images: [
+        {
+          src: "assets/images/0501 city surgical robotic.jpeg",
+          caption: "Cardiovascular robotics development environment.",
+        },
+      ],
     },
     {
       id: "myradio",
@@ -168,7 +321,12 @@ window.PORTFOLIO_CONTENT = {
         "Standardized chassis CAE protocols to ensure consistent, data-driven decision-making across all engineering subsystems.",
         "Managed the delivery of manufacturing-ready documentation, including controlled drawings and MasterCAM G-code for CNC production.",
       ],
-      images: [],
+      images: [
+        {
+          src: "assets/images/BajaPic11.jpeg",
+          caption: "Baja vehicle in context—integration and competition validation.",
+        },
+      ],
     },
     {
       id: "maya",
@@ -229,7 +387,12 @@ window.PORTFOLIO_CONTENT = {
         "Thesis: Robust, optimal control of tendon-driven robotic catheter dynamics",
         "Awards: Graduate Excellence Award; FRQNT Scholar",
       ],
-      images: [],
+      images: [
+        {
+          src: "assets/images/FraserGurdDinnerandGraduatingCeremonies2025-147.jpg",
+          caption: "McGill graduate ceremonies—Fraser Gurd dinner and convocation week.",
+        },
+      ],
     },
     {
       degree: "B.Eng. (Honours), Mechanical Engineering",

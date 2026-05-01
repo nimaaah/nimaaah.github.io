@@ -10,7 +10,7 @@
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; frame-ancestors 'none'; upgrade-insecure-requests"
+      content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; media-src 'self'; font-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; frame-ancestors 'none'; upgrade-insecure-requests"
     />
     <title>Nima Hemati</title>
     <link rel="stylesheet" href="styles.css" />
@@ -28,6 +28,7 @@
       <a class="brand" href="#top" aria-label="Home">NH</a>
       <div class="nav-list-wrap" id="nav-list-wrap">
         <nav aria-label="Primary">
+          <!-- Primary nav temporarily hidden
           <ul class="nav-list">
             <li><a href="#profile">Profile</a></li>
             <li><a href="#skills">Skills</a></li>
@@ -36,6 +37,7 @@
             <li><a href="#education">Education</a></li>
             <li><a href="#volunteering">Volunteering</a></li>
           </ul>
+          -->
         </nav>
       </div>
       <div class="header-end">
@@ -45,7 +47,7 @@
           <span></span>
         </button>
         <div class="header-actions">
-          <a class="btn btn-primary" id="pdf-link" href="Nima_Hemati_CV.pdf" download>CV</a>
+          <a class="btn btn-ghost btn-cv" id="pdf-link" href="Nima_Hemati_CV.pdf" download>Download CV</a>
         </div>
       </div>
     </header>
@@ -92,42 +94,51 @@
           <span class="section-kicker" id="portfolio-heading"></span>
         </div>
         <p class="section-dek" id="portfolio-intro" hidden></p>
-        <article class="skill-card portfolio-marquee-outer" id="portfolio-shell">
-          <div
-            class="portfolio-marquee"
-            role="region"
-            aria-label="Portfolio gallery"
-            aria-roledescription="carousel"
-          >
-            <div class="portfolio-marquee-track" id="portfolio-track"></div>
-          </div>
-        </article>
+        <div class="portfolio-interactive" id="portfolio-shell">
+          <div class="portfolio-filters" id="portfolio-filters" role="tablist" aria-label="Portfolio categories"></div>
+          <article class="portfolio-feature" id="portfolio-feature"></article>
+          <div class="portfolio-grid" id="portfolio-grid"></div>
+        </div>
       </section>
 
+      <!-- Experience section temporarily hidden
       <section id="experience" class="section-tight" aria-labelledby="experience-heading">
         <div class="section-head">
           <span class="section-kicker" id="experience-heading">Experience</span>
         </div>
         <div class="exp-list" id="timeline-exp"></div>
       </section>
+      -->
 
+      <!-- Education section temporarily hidden
       <section id="education" class="section-tight" aria-labelledby="education-heading">
         <div class="section-head">
           <span class="section-kicker" id="education-heading">Education</span>
         </div>
         <div class="edu-overlap" id="education-blocks"></div>
       </section>
+      -->
 
+<<<<<<< Updated upstream
       <section id="volunteering" class="section-tight" aria-labelledby="volunteer-heading">
+=======
+      <!-- Volunteer section temporarily hidden
+      <section id="volunteer" class="section-tight" aria-labelledby="volunteer-heading">
+>>>>>>> Stashed changes
         <div class="section-head">
           <span class="section-kicker" id="volunteer-heading">Volunteering</span>
         </div>
         <div class="exp-list" id="timeline-vol"></div>
       </section>
+      -->
     </main>
 
     <footer class="site-footer">
+<<<<<<< Updated upstream
       <p>Nima Hemati · 2026 · <span id="year"></span></p>
+=======
+      <p>Private host · Portfolio-first · <span id="year"></span></p>
+>>>>>>> Stashed changes
     </footer>
 
     <script src="content.js"></script>
