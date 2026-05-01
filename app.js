@@ -30,32 +30,142 @@
       </div>`;
   }
 
-  function cardHtml(item) {
-    const cap = item.caption || "";
-    const alt = item.alt != null ? item.alt : cap.slice(0, 120) || "Portfolio image";
+  function isVideoSrc(src) {
+    return /\.(mov|mp4|webm|ogv)(\?.*)?$/i.test(src || "");
+  }
+
+  function tokenize(value) {
+    return String(value || "")
+      .toLowerCase()
+      .replace(/[^a-z0-9\s]/g, " ")
+      .split(/\s+/)
+      .filter((w) => w.length >= 4);
+  }
+
+  function truncateText(value, max = 170) {
+    if (!value || value.length <= max) return value || "";
+    return `${value.slice(0, max - 1).trimEnd()}…`;
+  }
+
+  function buildBulletEvidence() {
+    const out = [];
+    (C.experience || []).forEach((role) => {
+      (role.bullets || []).forEach((text) => {
+        out.push({
+          text,
+          source: `${role.role}, ${role.org}`,
+          tokens: tokenize(text),
+        });
+      });
+    });
+    (C.skillGroups || []).forEach((group) => {
+      (group.items || []).forEach((text) => {
+        out.push({
+          text,
+          source: group.title,
+          tokens: tokenize(text),
+        });
+      });
+    });
+    return out;
+  }
+
+  function sectionKeywordBoost(sectionId, text) {
+    const t = (text || "").toLowerCase();
+    if (sectionId === "mechanical-design") {
+      return /(robot|hardware|mechanical|design|verification|control|simulation|prototype|integration)/.test(t)
+        ? 2
+        : 0;
+    }
+    if (sectionId === "product-management") {
+      return /(agile|delivery|roadmap|requirements|program|milestone|product|risk|coordina|stakeholder)/.test(t)
+        ? 2
+        : 0;
+    }
+    if (sectionId === "stakeholder-communication") {
+      return /(present|story|stakeholder|clinical|invest|audience|communication|demo|conference|business)/.test(t)
+        ? 2
+        : 0;
+    }
+    if (sectionId === "software-design") {
+      return /(software|code|ui|interface|python|c\+\+|control|simulation|qt|unity|model|algorithm|data)/.test(t)
+        ? 2
+        : 0;
+    }
+    return 0;
+  }
+
+  function inferMediaCaption(group, item, evidencePool) {
+    const basis = [group.id, group.title, group.label, item.title, item.alt, item.src].join(" ");
+    const mediaTokens = tokenize(basis);
+    let best = null;
+    let bestScore = -1;
+    for (const ev of evidencePool) {
+      const overlap = ev.tokens.reduce((acc, t) => acc + (mediaTokens.includes(t) ? 1 : 0), 0);
+      const score = overlap + sectionKeywordBoost(group.id, ev.text);
+      if (score > bestScore) {
+        best = ev;
+        bestScore = score;
+      }
+    }
+    if (!best) return { caption: "", source: "" };
+    return {
+      caption: truncateText(best.text, 180),
+      source: best.source,
+    };
+  }
+
+  function mediaStageHtml(item, resolvedCaption) {
+    const cap = resolvedCaption || item.caption || "";
+    const alt = item.alt != null ? item.alt : cap.slice(0, 120) || "Portfolio media";
+    const src = item.src || "";
+    if (isVideoSrc(src) || item.type === "video") {
+      return `<video class="portfolio-stage-media" src="${esc(src)}" controls playsinline preload="metadata" aria-label="${esc(
+        alt
+      )}"></video>`;
+    }
+    return `<img class="portfolio-stage-media" src="${esc(src)}" alt="${esc(alt)}" loading="lazy" decoding="async" />`;
+  }
+
+  function mediaTileHtml(item, idx, selected, resolvedCaption) {
+    const cap = resolvedCaption || "";
+    const alt = item.alt != null ? item.alt : cap.slice(0, 120) || "Portfolio media";
+    const src = item.src || "";
+    const isVideo = isVideoSrc(src) || item.type === "video";
     return `
-      <article class="skill-card portfolio-card portfolio-marquee-card">
-        <div class="portfolio-card-image-wrap">
-          <img class="portfolio-card-img" src="${esc(item.src)}" alt="${esc(alt)}" loading="lazy" width="640" height="480" decoding="async" />
-        </div>
-        ${cap ? `<p class="portfolio-card-caption">${esc(cap)}</p>` : ""}
-      </article>`;
+      <button type="button" class="portfolio-tile${selected ? " is-active" : ""}" data-media-index="${idx}" aria-label="${esc(
+      alt
+    )}">
+        <span class="portfolio-tile-media-wrap">
+          ${
+            isVideo
+              ? `<video src="${esc(src)}" preload="metadata" playsinline muted aria-hidden="true"></video><span class="portfolio-play-badge">Video</span>`
+              : `<img src="${esc(src)}" alt="" loading="lazy" decoding="async" />`
+          }
+        </span>
+        ${cap ? `<span class="portfolio-tile-caption">${esc(cap)}</span>` : ""}
+      </button>`;
   }
 
   function renderPortfolio() {
     const section = $("#portfolio");
     const shell = $("#portfolio-shell");
-    const track = $("#portfolio-track");
+    const filtersEl = $("#portfolio-filters");
+    const featureEl = $("#portfolio-feature");
+    const gridEl = $("#portfolio-grid");
     const headingEl = $("#portfolio-heading");
     const introEl = $("#portfolio-intro");
-    if (!section || !shell || !track || !headingEl) return;
+    if (!section || !shell || !filtersEl || !featureEl || !gridEl || !headingEl) return;
 
     const P = C.portfolio;
-    const items = P && Array.isArray(P.items) ? P.items : [];
-    if (!items.length) {
+    const groups = P && Array.isArray(P.sections) ? P.sections : [];
+    const validGroups = groups.filter((g) => g && g.id && Array.isArray(g.items) && g.items.some((i) => i && i.src));
+
+    if (!validGroups.length) {
       section.hidden = true;
-      track.innerHTML = "";
-      shell.classList.remove("portfolio-marquee--static");
+      filtersEl.innerHTML = "";
+      featureEl.innerHTML = "";
+      gridEl.innerHTML = "";
       return;
     }
     section.hidden = false;
@@ -70,13 +180,157 @@
         introEl.hidden = true;
       }
     }
+    let activeGroup = validGroups[0];
+    let activeItem = activeGroup.items.find((it) => it && it.src) || null;
+    const evidencePool = buildBulletEvidence();
+    let autoRotateTimer = null;
+    let autoRotatePaused = false;
+    let stageSwitchTimer = null;
 
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const slides = reduceMotion ? items : [...items, ...items];
-    shell.classList.toggle("portfolio-marquee--static", reduceMotion);
-    const seconds = Math.max(28, items.length * 4.5);
-    track.style.setProperty("--portfolio-marquee-seconds", `${seconds}s`);
-    track.innerHTML = slides.map((item) => cardHtml(item)).join("");
+    function activeItems() {
+      return activeGroup.items.filter((it) => it && it.src);
+    }
+
+    function captionMeta(item) {
+      return inferMediaCaption(activeGroup, item, evidencePool);
+    }
+
+    function renderStage() {
+      if (!activeItem) {
+        featureEl.innerHTML = "";
+        return;
+      }
+      const groupTitle = activeGroup.title || "";
+      const why = activeGroup.why || "";
+      const meta = captionMeta(activeItem);
+      featureEl.innerHTML = `
+        <div class="portfolio-stage-wrap">${mediaStageHtml(activeItem, meta.caption)}</div>
+        <div class="portfolio-stage-copy">
+          ${groupTitle ? `<p class="portfolio-stage-kicker">${esc(groupTitle)}</p>` : ""}
+          ${activeItem.title ? `<h3 class="portfolio-stage-title">${esc(activeItem.title)}</h3>` : ""}
+          ${meta.caption ? `<p class="portfolio-stage-text">${esc(meta.caption)}</p>` : ""}
+          ${meta.source ? `<p class="portfolio-stage-source">Evidence: ${esc(meta.source)}</p>` : ""}
+          ${why ? `<p class="portfolio-stage-why">${esc(why)}</p>` : ""}
+        </div>`;
+
+      const stageVideo = $(".portfolio-stage-media", featureEl);
+      if (stageVideo && stageVideo.tagName === "VIDEO") {
+        stageVideo.autoplay = true;
+        stageVideo.muted = true;
+        stageVideo.playsInline = true;
+        const tryPlay = stageVideo.play();
+        if (tryPlay && typeof tryPlay.catch === "function") {
+          tryPlay.catch(() => {});
+        }
+      }
+    }
+
+    function switchActiveItem(nextItem) {
+      if (!nextItem || nextItem === activeItem) return;
+      if (stageSwitchTimer) {
+        window.clearTimeout(stageSwitchTimer);
+        stageSwitchTimer = null;
+      }
+      featureEl.classList.add("is-switching");
+      stageSwitchTimer = window.setTimeout(() => {
+        activeItem = nextItem;
+        renderStage();
+        renderGrid();
+        featureEl.classList.remove("is-switching");
+      }, 160);
+    }
+
+    function renderGrid() {
+      const items = activeItems();
+      gridEl.innerHTML = items
+        .map((item, idx) => {
+          const meta = captionMeta(item);
+          return mediaTileHtml(item, idx, item === activeItem, meta.caption);
+        })
+        .join("");
+      $$("[data-media-index]", gridEl).forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const idx = Number(btn.getAttribute("data-media-index"));
+          const picked = items[idx];
+          if (!picked) return;
+          switchActiveItem(picked);
+          restartAutoRotate();
+        });
+      });
+    }
+
+    function renderFilters() {
+      filtersEl.innerHTML = validGroups
+        .map(
+          (g, idx) =>
+            `<button type="button" class="portfolio-filter${g.id === activeGroup.id ? " is-active" : ""}" role="tab" aria-selected="${
+              g.id === activeGroup.id ? "true" : "false"
+            }" data-group-index="${idx}">${esc(g.label || g.title || g.id)}</button>`
+        )
+        .join("");
+      $$("[data-group-index]", filtersEl).forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const idx = Number(btn.getAttribute("data-group-index"));
+          const group = validGroups[idx];
+          if (!group) return;
+          activeGroup = group;
+          activeItem = group.items.find((it) => it && it.src) || null;
+          restartAutoRotate();
+          renderFilters();
+          renderStage();
+          renderGrid();
+        });
+      });
+    }
+
+    function rotateToNext() {
+      const items = activeItems();
+      if (!items.length || !activeItem) return;
+      const idx = items.indexOf(activeItem);
+      const next = items[(idx + 1) % items.length];
+      if (!next) return;
+      switchActiveItem(next);
+    }
+
+    function stopAutoRotate() {
+      if (autoRotateTimer) {
+        window.clearInterval(autoRotateTimer);
+        autoRotateTimer = null;
+      }
+    }
+
+    function startAutoRotate() {
+      stopAutoRotate();
+      autoRotateTimer = window.setInterval(() => {
+        if (autoRotatePaused || document.hidden) return;
+        const stageVideo = $(".portfolio-stage-media", featureEl);
+        if (stageVideo && stageVideo.tagName === "VIDEO" && !stageVideo.ended) return;
+        rotateToNext();
+      }, 7000);
+    }
+
+    function restartAutoRotate() {
+      startAutoRotate();
+    }
+
+    shell.hidden = false;
+    renderFilters();
+    renderStage();
+    renderGrid();
+    startAutoRotate();
+
+    shell.addEventListener("mouseenter", () => {
+      autoRotatePaused = true;
+    });
+    shell.addEventListener("mouseleave", () => {
+      autoRotatePaused = false;
+    });
+    shell.addEventListener("focusin", () => {
+      autoRotatePaused = true;
+    });
+    shell.addEventListener("focusout", () => {
+      autoRotatePaused = false;
+    });
   }
 
   function renderSkills() {
