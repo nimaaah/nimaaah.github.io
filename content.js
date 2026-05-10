@@ -385,5 +385,5 @@ window.PORTFOLIO_CONTENT = {
     },
   ],
 
-  pdfCvPath: "Hemati_CV.pdf",
+  pdfCvPath: "Hemati_CV_PM.pdf",
 };

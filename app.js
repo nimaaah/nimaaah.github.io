@@ -481,9 +481,7 @@
     const pdf = $("#pdf-link");
     if (pdf && C.pdfCvPath) {
       const normalizedPdfPath = String(C.pdfCvPath).trim().replace(/^\/+/, "");
-      // Cache-bust CV swaps so browsers do not keep serving an old file.
-      const cacheBustedPdfPath = `${encodeURI(normalizedPdfPath)}?v=20260510`;
-      pdf.href = cacheBustedPdfPath;
+      pdf.href = encodeURI(normalizedPdfPath);
       pdf.setAttribute("download", normalizedPdfPath.split("/").pop() || "CV.pdf");
     }
   }
