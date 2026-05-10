@@ -519,20 +519,20 @@ main {
 }
 
 .btn-cv {
-  background: linear-gradient(135deg, var(--accent), #ff8f78 58%, var(--accent-2));
+  background: linear-gradient(135deg, #cf5167, #d67564 58%, #2da996);
   color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  box-shadow: 0 6px 16px rgba(232, 93, 117, 0.24), 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 12px rgba(207, 81, 103, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.04) inset;
   font-weight: 650;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.025em;
   text-transform: uppercase;
 }
 
 .btn-cv:hover {
   color: #fff;
-  border-color: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.2);
   transform: translateY(-1px);
-  box-shadow: 0 9px 22px rgba(232, 93, 117, 0.3), 0 0 12px rgba(0, 201, 167, 0.22);
+  box-shadow: 0 7px 16px rgba(207, 81, 103, 0.24), 0 0 8px rgba(45, 169, 150, 0.16);
 }
 
 .portfolio-interactive {
